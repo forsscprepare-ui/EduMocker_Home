@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduMocker</title>
+
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;background:#2196F3;color:#fff;
+  position:sticky;top:0;z-index:10
+}
+header span{font-weight:bold}
+
+.tabs{display:flex;background:#1976D2}
+.tab-btn{flex:1;padding:10px;color:#fff;text-align:center;cursor:pointer}
+.tab-btn.active{background:#0D47A1;font-weight:bold}
+
+.tab-content{display:none;padding:10px}
+.tab-content.active{display:block}
+
+.cards{display:flex;flex-wrap:wrap;gap:10px}
+.card{
+  flex:1 1 45%;background:#fff;border-radius:10px;
+  padding:15px;text-align:center;cursor:pointer;
+  box-shadow:0 2px 5px rgba(0,0,0,.2);
+  position:relative
+}
+.card.locked::after{
+  content:"🔒";position:absolute;top:8px;right:8px;font-size:18px
+}
+
+.popup-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);
+  display:none;align-items:center;justify-content:center;z-index:20
+}
+.popup{
+  background:#fff;padding:20px;border-radius:10px;
+  width:85%;max-width:300px;text-align:center
+}
+.popup button{
+  margin-top:15px;padding:10px 15px;border:none;
+  background:#2196F3;color:#fff;border-radius:6px
+}
+
+.loader{
+  position:fixed;inset:0;background:#fff;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;z-index:50
+}
+.spin{
+  width:45px;height:45px;border:5px solid #ddd;
+  border-top:5px solid #2196F3;border-radius:50%;
+  animation:spin 1s linear infinite;margin-bottom:10px
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:480px){
+  .card{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<header style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 15px;
+">
+
+  <!-- User icon + username (clickable) -->
+  <div 
+    onclick="window.location.href='https://sscgk.store/'"
+    style="
+      display:flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+    ">
+    
+    <img 
+      src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsp-v0JLzLapWnqP6ZCMt9c29sWGHwQvvqXMpf4k6BnMPQlhudzBU-X6cRVZ7iKf8uBaMJNKqxyJelpgVHjrnN3NCJTAxUfD-gCW6__yC7-bvwb1WBneNJx77WTSEwCciJ9eU7ZTGjQqeouNnpMrTD6eKW_yDoKC0NrnK6CJ4QJ9CC90KwkI9w4viCDwVV/s1600/icons8-user-location-48.png"
+      alt="User"
+      style="width:22px;height:22px;"
+    >
+
+    <span id="username" style="font-size:14px;">
+      User
+    </span>
+  </div>
+
+  <!-- App Name -->
+  <div style="font-weight:bold;font-size:16px;">
+    EduMocker
+  </div>
+
+</header>
+<div style="height:5px;"></div>
+<div class="tabs">
+  <div class="tab-btn active" data-tab="free">Recent Tests</div>
+  <div class="tab-btn" data-tab="mock">Mocktests</div>
+  <div class="tab-btn" data-tab="topic">Topic Wise</div>
+</div>
+
+<div id="free" class="tab-content active">
+
+<iframe
+  src="https://lokanathsahu13.github.io/my-website/ "
+  style="width:100%; height:100vh; border:2px solid #ffffff;"
+  allowfullscreen
+></iframe>
+
+
+
+
+
+
+    
+</div>
+
+<div id="mock" class="tab-content">
+  <div class="cards">
+
+
+
+
+
+      
+    <div class="card" data-link="https://sscgk.store/" data-locked="yes">
+  <div style="font-size:20px;font-weight:bold;">OSSC CGL</div>
+
+        <div style="font-size:14px;color:#666;margin-top:8px;">
+    Full Prelims Mocktests - 20 Sets
+  </div>
+         <div style="font-size:14px;color:#666;margin-top:4px;">
+    Full Mains Mocktests - 20 Sets
+  </div>
+        <div style="font-size:14px;color:#666;margin-top:4px;">
+    Prelims Sectional Mocktests - 90 Sets(each subject - 15sets)
+  </div>
+        <div style="font-size:14px;color:#666;margin-top:4px;">
+    Mains Sectional Mocktests - 40 Sets(each subject - 45sets)
+  </div>
+</div>
+
+
+
+
+
+
+
+
+      
+   <div class="card" data-link="https://sscgk.store/" data-locked="yes">
+  <div style="font-size:20px;font-weight:bold;">OSSSC RI ARI AMIN</div>
+
+        <div style="font-size:14px;color:#666;margin-top:8px;">
+    Full Prelims Mocktests - 40 Sets
+  </div>
+
+        <div style="font-size:14px;color:#666;margin-top:4px;">
+    Prelims Sectional Mocktests - 120 Sets(each subject - 20sets)
+  </div>
+        
+</div>
+
+
+
+
+
+      
+  </div>
+</div>
+
+<div id="topic" class="tab-content">
+  <div class="cards">
+      <div class="card" data-link="https://sscgk.store/" data-locked="yes">General Awareness(All)</div>
+    <div class="card" data-link="https://sscgk.store/" data-locked="yes">Odia</div>
+    <div class="card" data-link="https://sscgk.store/" data-locked="yes">Reasoning</div>
+    <div class="card" data-link="https://sscgk.store/" data-locked="yes">Math(DI)</div>
+      <div class="card" data-link="https://sscgk.store/" data-locked="yes">Math(All)</div>
+    <div class="card" data-link="https://sscgk.store/" data-locked="yes">Current Affairs</div>
+      <div class="card" data-link="https://sscgk.store/" data-locked="yes">Computer Awareness</div>
+      <div class="card" data-link="https://sscgk.store/" data-locked="yes">Odisha GK</div>
+      
+  </div>
+</div>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <p>This content is PAID💸.</p>
+     <strong> <h3>Buy - ₹59</h3></strong>
+      <p>For 3 Months</p>
+    <button onclick="window.location.href='https://readfx.blogspot.com/'">Buy Now</button>
+  </div>
+</div>
+
+<div class="loader" id="loader">
+  <div class="spin"></div>
+  <div>Wait a second…</div>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDC7bCtLbGiU-4ZEfXvLbzU0jXkeHUlgG4",
+  authDomain: "test-fdc3c.firebaseapp.com",
+  projectId: "test-fdc3c",
+  storageBucket: "test-fdc3c.firebasestorage.app",
+  messagingSenderId: "145794176469",
+  appId: "1:145794176469:web:c67b2e0248351bb533195c",
+  measurementId: "G-XC6BWR46KB"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const loader = document.getElementById("loader");
+const popup = document.getElementById("popup");
+
+const phone = localStorage.getItem("user_phone");
+if(!phone){ alert("No login found"); }
+
+const snap = await getDoc(doc(db,"users",phone));
+const data = snap.data();
+
+document.getElementById("username").innerText = data.name || "User";
+
+const now = new Date();
+const expiry = data.duration ? new Date(data.duration+"T23:59:59") : null;
+
+document.querySelectorAll(".card").forEach(card=>{
+  if(card.dataset.locked==="yes"){
+    if(data.paid==="yes" && expiry && now<=expiry){
+      card.classList.remove("locked");
+    }else{
+      card.classList.add("locked");
+    }
+  }
+
+  card.onclick=()=>{
+    if(card.classList.contains("locked")){
+      popup.style.display="flex";
+    }else{
+      window.open(card.dataset.link,"_blank");
+    }
+  }
+});
+
+loader.style.display="none";
+</script>
+
+<script>
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  }
+});
+
+
+
+
+const popupOverlay = document.getElementById("popup");
+
+// Close popup when clicking outside the popup box
+popupOverlay.addEventListener("click", function(e){
+  if(e.target === popupOverlay){
+    popupOverlay.style.display = "none";
+  }
+});
+   
+</script>
+
+</body>
+</html>
