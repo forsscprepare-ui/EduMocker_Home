@@ -483,7 +483,23 @@ popupOverlay.addEventListener("click", function(e){
     popupOverlay.style.display = "none";
   }
 });
-   
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('cut', e => e.preventDefault());
+document.addEventListener('paste', e => e.preventDefault());
+
+  
 </script>
 
 </body>
